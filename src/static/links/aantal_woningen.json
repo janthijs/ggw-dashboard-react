@@ -1,0 +1,23 @@
+[
+  {
+    "label": "",
+    "indicatorDefinitieId": "WvoorrBAG"
+  },
+  {
+    "label": "Koop",
+    "indicatorDefinitieId": "Wkoop"
+  },
+  {
+    "label": "Corporatie huur",
+    "indicatorDefinitieId": "wcorhuur"
+  },
+  {
+    "label": "Particulier huur",
+    "indicatorDefinitieId": "Wparthuur"
+  },
+  {
+    "label": "",
+    "showInLegend": false,
+    "indicatorDefinitieId": "W_prog[LATEST]"
+  }
+]

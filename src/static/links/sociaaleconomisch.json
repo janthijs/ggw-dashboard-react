@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Laag opgeleid",
+    "indicatorDefinitieId": "Bevopllaag_p"
+  },
+  {
+    "label": "Minimahuishoudens",
+    "indicatorDefinitieId": "IMINHH120_P"
+  },
+  {
+    "label": "Geregistreerde werkloosheid",
+    "indicatorDefinitieId": "Pregwerkl_p"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Koop",
+    "indicatorDefinitieId": "WKOOP_P"
+  },
+  {
+    "label": "Vrije sector (particulier)",
+    "indicatorDefinitieId": "WHUURVRIJPART_P"
+  },
+  {
+    "label": "Vrije sector (corporatie)",
+    "indicatorDefinitieId": "WHUURVRIJCORP_P"
+  },
+  {
+    "label": "Sociale huur (particulier)",
+    "indicatorDefinitieId": "WHUURSOCPART_P"
+  },
+  {
+    "label": "Sociale huur (corporatie)",
+    "indicatorDefinitieId": "WHUURSOCCORP_P"
+  }
+]

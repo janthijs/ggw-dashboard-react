@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Suriname",
+    "indicatorDefinitieId": "BevSur_p"
+  },
+  {
+    "label": "Antillen",
+    "indicatorDefinitieId": "BevAntil_p"
+  },
+  {
+    "label": "Turkije",
+    "indicatorDefinitieId": "BevTurk_p"
+  },
+  {
+    "label": "Marokko",
+    "indicatorDefinitieId": "BevMarok_p"
+  },
+  {
+    "label": "Overig niet-Westers",
+    "indicatorDefinitieId": "BevovNW_p"
+  },
+  {
+    "label": "Westers",
+    "indicatorDefinitieId": "BevWest_p"
+  },
+  {
+    "label": "Autochtoon",
+    "indicatorDefinitieId": "BevAutoch_p"
+  }
+]

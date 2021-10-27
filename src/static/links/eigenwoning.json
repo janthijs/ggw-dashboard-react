@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Tevredenheid met woning",
+    "indicatorDefinitieId": "Wwoning_r"
+  },
+  {
+    "label": "Kan ik oud in worden",
+    "indicatorDefinitieId": "Wgeschiktoud_p"
+  },
+  {
+    "label": "Verhuisgeneigd",
+    "indicatorDefinitieId": "Wverhuis_p"
+  }
+]

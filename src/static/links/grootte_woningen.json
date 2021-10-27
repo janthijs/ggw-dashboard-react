@@ -1,0 +1,22 @@
+[
+  {
+    "label": "0-40",
+    "indicatorDefinitieId": "Wopp0040_p"
+  },
+  {
+    "label": "40-60",
+    "indicatorDefinitieId": "Wopp4060_p"
+  },
+  {
+    "label": "60-80",
+    "indicatorDefinitieId": "Wopp6080_p"
+  },
+  {
+    "label": "80-100",
+    "indicatorDefinitieId": "Wopp80100_p"
+  },
+  {
+    "label": "100+",
+    "indicatorDefinitieId": "Wopp100plus_p"
+  }
+]

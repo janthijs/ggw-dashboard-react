@@ -1,0 +1,36 @@
+[
+  {
+    "label": "Inwoners",
+    "indicatorDefinitieId": "Bevtotaal"
+  },
+  {
+    "label": "Woningen",
+    "indicatorDefinitieId": "WvoorrBAG"
+  },
+  {
+    "label": "Vestigingen",
+    "indicatorDefinitieId": "BHVest"
+  },
+  {
+    "label": "Winkels food",
+    "indicatorDefinitieId": "BHVest_BGWDG"
+  },
+  {
+    "label": "Werkzame personen",
+    "indicatorDefinitieId": "BHwp"
+  },
+  {
+    "label": "Scholen PO",
+    "indicatorDefinitieId": "OschBAO"
+  },
+  {
+    "label": "Oppervlakte land",
+    "indicatorDefinitieId": "ORland",
+    "post": " hectare"
+  },
+  {
+    "label": "Bevolkingsdichtheid",
+    "indicatorDefinitieId": "Bevdicht",
+    "post": " inw./km2"
+  }
+]

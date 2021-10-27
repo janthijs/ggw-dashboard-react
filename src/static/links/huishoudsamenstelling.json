@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Overig",
+    "indicatorDefinitieId": "BevoverigHH_p"
+  },
+  {
+    "label": "Eenpersoons huishouden",
+    "indicatorDefinitieId": "BevalleenHH_p"
+  },
+  {
+    "label": "Eenoudergezin",
+    "indicatorDefinitieId": "BeveenouderHH_p"
+  },
+  {
+    "label": "Stel met kinderen",
+    "indicatorDefinitieId": "BevpaarmkindHH_p"
+  },
+  {
+    "label": "Stel zonder kinderen",
+    "indicatorDefinitieId": "BevpaarzkindHH_p"
+  }
+]

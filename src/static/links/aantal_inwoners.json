@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Totaal",
+    "indicatorDefinitieId": "Bevtotaal"
+  },
+  {
+    "label": "0-17",
+    "indicatorDefinitieId": "Bev0_17"
+  },
+  {
+    "label": "18-64",
+    "indicatorDefinitieId": "Bev18_64"
+  },
+  {
+    "label": "65+",
+    "indicatorDefinitieId": "Bev65plus"
+  },
+  {
+    "label": "",
+    "showInLegend": false,
+    "indicatorDefinitieId": "Bev_prog[LATEST]"
+  },
+  {
+    "label": "",
+    "showInLegend": false,
+    "indicatorDefinitieId": "Bev0_17_prog[LATEST]"
+  },
+  {
+    "label": "",
+    "showInLegend": false,
+    "indicatorDefinitieId": "Bev18_64_prog[LATEST]"
+  },
+  {
+    "label": "",
+    "showInLegend": false,
+    "indicatorDefinitieId": "Bev65plus_prog[LATEST]"
+  }
+]

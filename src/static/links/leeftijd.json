@@ -1,0 +1,14 @@
+[
+  {
+    "label": "0-17",
+    "indicatorDefinitieId": "Bev0_17_p"
+  },
+  {
+    "label": "65+",
+    "indicatorDefinitieId": "Bev65plus_p"
+  },
+  {
+    "label": "80+",
+    "indicatorDefinitieId": "Bev80plus_p"
+  }
+]
