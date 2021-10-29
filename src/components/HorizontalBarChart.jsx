@@ -13,11 +13,11 @@ const vegaEmbedOptions = {
   renderer: "svg",
 };
 
-const HorizontalBarChart = ({ title, icon, config }) => {
+const HorizontalBarChart = ({ title, icon, config, gwb }) => {
   const chartRef = React.useRef();
 
   async function updateData() {
-    const chartdata = await util.getLatestConfigCijfers("gebied", config);
+    const chartdata = await util.getLatestConfigCijfers(gwb, config);
     const chartBase = cloneDeep(vegaSpec);
 
     chartBase.data.values = chartdata.map((d, i) => ({
@@ -35,14 +35,18 @@ const HorizontalBarChart = ({ title, icon, config }) => {
       (v) => v.color
     );
 
-    console.log(JSON.stringify(chartBase));
+    // console.log(JSON.stringify(chartBase));
 
     vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
   }
 
   React.useEffect(() => {
+    if (!gwb) {
+      return;
+    }
+
     updateData();
-  });
+  }, [gwb]);
 
   return (
     <div className="block-container">

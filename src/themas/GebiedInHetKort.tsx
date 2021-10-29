@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Column, Row } from "@amsterdam/asc-ui";
 
 import DataTable from "../components/DataTable";
@@ -10,19 +9,21 @@ import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
 import leeftijd from "../static/links/leeftijd.json";
 import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 
-const GebiedInHetKort = () => {
+const GebiedInHetKort = ({ gwb }) => {
   return (
     <div className="container">
-    <Row>
-      <Column span={6}>
-      <p>Pano</p>
-      </Column>
-      <Column span={6}>  <InAantallen></InAantallen></Column>
-      <Column span={12}>
-
-      <h2>Samenstelling woningvoorraad en bevolking vangwb.naam</h2>
-      </Column>
-    </Row>
+      <Row>
+        <Column span={6}>
+          <p>Pano</p>
+        </Column>
+        <Column span={6}>
+          {" "}
+          <InAantallen></InAantallen>
+        </Column>
+        <Column span={12}>
+          <h2>Samenstelling woningvoorraad en bevolking vangwb.naam</h2>
+        </Column>
+      </Row>
       <Row>
         <Column
           wrap
@@ -38,6 +39,7 @@ const GebiedInHetKort = () => {
             title="Woningvoorraad"
             icon="wonen_en_leefomgeving.png"
             config={woningVoorraad}
+            gwb={gwb}
           ></HorizontalBarChart>
         </Column>
         <Column
@@ -54,6 +56,7 @@ const GebiedInHetKort = () => {
             title="Sociaal-economisch"
             icon="werk_en_inkomen.png"
             config={sociaalEconomisch}
+            gwb={gwb}
           ></HorizontalBarChart>
         </Column>
       </Row>
@@ -72,6 +75,7 @@ const GebiedInHetKort = () => {
             title="Leeftijd"
             icon="kind_icoon_met_bal.png"
             config={leeftijd}
+            gwb={gwb}
           ></HorizontalBarChart>
         </Column>
         <Column
@@ -88,6 +92,7 @@ const GebiedInHetKort = () => {
             title="Migratie-achtergrond"
             icon="locaties.png"
             config={migratieAchtergrond}
+            gwb={gwb}
           ></HorizontalBarChart>
         </Column>
       </Row>

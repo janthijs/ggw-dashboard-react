@@ -9,7 +9,6 @@ import {
   ListItem,
   Link,
   Paragraph,
-  FooterBottom,
 } from "@amsterdam/asc-ui";
 
 const GGWFooter = () => {
@@ -134,14 +133,6 @@ const GGWFooter = () => {
           </Column>
         </Row>
       </FooterTop>
-      <FooterBottom>
-        <Link href="/" inList>
-          Privacy and cookies
-        </Link>
-        <Link href="/" inList>
-          About this site
-        </Link>
-      </FooterBottom>
     </Footer>
   );
 };

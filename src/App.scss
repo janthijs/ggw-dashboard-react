@@ -5,6 +5,8 @@
 
 // @import "~amsterdam-stijl/dist/scss/ams-colorpalette";
 // @import "~amsterdam-stijl/dist/scss/ams-breakpoints";
+@import "~@amsterdam/asc-assets/static/fonts/fonts.css";
+@import "~leaflet/dist/leaflet.css";
 
 #app {
   .row + .row,

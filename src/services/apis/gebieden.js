@@ -89,13 +89,17 @@ export function getKeyFromUrl(url) {
  * @returns {Promise<*>}
  */
 export async function getDetail(entity) {
+  if (entity === undefined) {
+    return;
+  }
+
   async function getData() {
-    const url = entity._links.self.href;
+    const url = entity?._links.self.href;
     const data = await readData(url);
     enhanceGWB(data);
     return data;
   }
-  return cacheResponse(`GWB.detail.${entity.vollcode}`, getData);
+  return cacheResponse(`GWB.detail.${entity?.vollcode}`, getData);
 }
 
 /**

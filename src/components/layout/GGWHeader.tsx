@@ -1,22 +1,11 @@
 import * as React from "react";
+import { Header } from "@amsterdam/asc-ui";
 
 const GGWHeader = () => {
   return (
-    <div className="container-fluid">
-      <div className="ams-header">
-        <header>
-          <img
-            className="ams-header__logo"
-            src="../static/logo-short.svg"
-            height="45px"
-            alt="Logo gemeente Amsterdam"
-          />
-        </header>
-        <span className="header-title">
-          <b>Gebied in beeld</b>
-        </span>
-      </div>
-    </div>
+    <>
+      <Header tall={false} title="Gebied in beeld" homeLink="" fullWidth />
+    </>
   );
 };
 
