@@ -13,20 +13,16 @@ import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 const GebiedInHetKort = () => {
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-12 card">
-          <div className="row">
-            <div className="col-lg-6">
-              <p>Pano</p>
-            </div>
-            <div className="col-lg-6 content-centered">
-              <InAantallen></InAantallen>
-            </div>
-          </div>
-        </div>
-      </div>
+    <Row>
+      <Column span={6}>
+      <p>Pano</p>
+      </Column>
+      <Column span={6}>  <InAantallen></InAantallen></Column>
+      <Column span={12}>
 
       <h2>Samenstelling woningvoorraad en bevolking vangwb.naam</h2>
+      </Column>
+    </Row>
       <Row>
         <Column
           wrap
