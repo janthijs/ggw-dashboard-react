@@ -1,10 +1,15 @@
-import * as React from "react";
 import { Header } from "@amsterdam/asc-ui";
 
 const GGWHeader = () => {
   return (
     <>
-      <Header tall={false} title="Gebied in beeld" homeLink="" fullWidth />
+      <Header
+        tall={false}
+        title="Gebied in beeld"
+        homeLink=""
+        fullWidth
+        css={{ zIndex: 1200 }}
+      />
     </>
   );
 };

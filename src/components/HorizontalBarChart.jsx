@@ -35,8 +35,6 @@ const HorizontalBarChart = ({ title, icon, config, gwb }) => {
       (v) => v.color
     );
 
-    // console.log(JSON.stringify(chartBase));
-
     vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
   }
 

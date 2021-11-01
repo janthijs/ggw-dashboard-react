@@ -5,6 +5,7 @@ import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import GWBMap from "../GWBMap";
 import ColorLegend from "../ColorLegend";
 import GWBSelector from "../GWBSelector";
+import ThemaSelector from "../ThemaSelector";
 
 const StyledDiv = styled("div")`
   background-color: ${themeColor("tint", "level2")};
@@ -13,14 +14,24 @@ const StyledDiv = styled("div")`
   height: 100%;
 `;
 
+const DashboardDiv = styled("div")`
+  padding-top: ${themeSpacing(8)};
+`;
+
 const Dashboard = () => {
   const [gwb, setGWB] = useState(null);
 
   return (
-    <>
+    <DashboardDiv>
       <Row>
         <Column span={4}>
           <GWBSelector gwb={gwb} setGWB={setGWB} />
+        </Column>
+        <Column span={4}>
+          <GWBMap gwb={gwb} />
+        </Column>
+        <Column span={4}>
+          <ThemaSelector />
         </Column>
       </Row>
       <Row>
@@ -42,7 +53,7 @@ const Dashboard = () => {
           <GebiedInHetKort gwb={gwb} />
         </Column>
       </Row>
-    </>
+    </DashboardDiv>
   );
 };
 

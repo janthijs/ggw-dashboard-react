@@ -1,7 +1,13 @@
 import * as React from "react";
-
+import styled from "styled-components";
 import { getGWBShapes, drawShapes, amsMap } from "../services/map";
 import { COLOR } from "../services/colorcoding";
+
+const MapDiv = styled("div")`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
 
 const GWBMap = ({ gwb }) => {
   const mapRef = React.useRef<HTMLDivElement>(null);
@@ -33,19 +39,20 @@ const GWBMap = ({ gwb }) => {
       map.current = amsMap(mapRef.current);
     }
 
-    console.log("map gwb", gwb);
-
     updateData();
   }, [gwb]);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "200px" }}>
-      <div
-        className="map"
-        style={{ height: "100%", width: "100%" }}
-        ref={mapRef}
-      ></div>
-    </div>
+    <MapDiv>
+      <h2 style={{ marginTop: 0 }}>Gebied {gwb?.naam}</h2>
+      <div style={{ position: "relative", width: "100%", height: "200px" }}>
+        <div
+          className="map"
+          style={{ height: "100%", width: "100%" }}
+          ref={mapRef}
+        ></div>
+      </div>
+    </MapDiv>
   );
 };
 

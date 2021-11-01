@@ -1,17 +1,27 @@
-import { Column, Row } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
-import DataTable from "../components/DataTable";
 import HorizontalBarChart from "../components/HorizontalBarChart";
 import InAantallen from "../components/InAantallen";
+import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 
 import woningVoorraad from "../static/links/woningvoorraad.json";
 import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
 import leeftijd from "../static/links/leeftijd.json";
 import migratieAchtergrond from "../static/links/migratieachtergrond.json";
+import jeugd from "../static/links/jeugd.json";
+import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
+import beroepsbevolking from "../static/links/potentiele_beroepsbevolking.json";
+
+const ContainerDiv = styled("div")`
+  margin-top: ${themeSpacing(3)};
+  margin-bottom: ${themeSpacing(3)};
+  width: 100%;
+`;
 
 const GebiedInHetKort = ({ gwb }) => {
   return (
-    <div className="container">
+    <ContainerDiv>
       <Row>
         <Column span={6}>
           <p>Pano</p>
@@ -21,7 +31,7 @@ const GebiedInHetKort = ({ gwb }) => {
           <InAantallen></InAantallen>
         </Column>
         <Column span={12}>
-          <h2>Samenstelling woningvoorraad en bevolking vangwb.naam</h2>
+          <h2>Samenstelling woningvoorraad en bevolking van {gwb?.naam}</h2>
         </Column>
       </Row>
       <Row>
@@ -97,21 +107,44 @@ const GebiedInHetKort = ({ gwb }) => {
         </Column>
       </Row>
 
-      <div className="row">
-        <div className="col-12 card">
-          <div className="row">
-            <div className="col-12 grid-title">
-              <h2>Ontwikkeling van gwbnaam</h2>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-12 content-centered">
-              <DataTable config="positieOntwikkeling" isCentered></DataTable>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <Row>
+        <Column span={12}>
+          <h2>Samenstelling jeugd in {gwb?.naam}</h2>
+        </Column>
+        <Column span={6}>
+          <div></div>
+        </Column>
+        <Column span={6}>
+          <StackedHorizontalBarChart
+            title="Leeftijdsgroepen in %"
+            icon="werk_en_inkomen.png"
+            config={jeugd}
+            gwb={gwb}
+          ></StackedHorizontalBarChart>
+        </Column>
+      </Row>
+      <Row>
+        <Column span={12}>
+          <h2>Samenstelling Werk en Inkomen in {gwb?.naam}</h2>
+        </Column>
+        <Column span={6}>
+          <StackedHorizontalBarChart
+            title="18 t/m 74 jarigen naar sociale klasse"
+            icon="werk_en_inkomen.png"
+            config={beroepsbevolking}
+            gwb={gwb}
+          ></StackedHorizontalBarChart>
+        </Column>
+        <Column span={6}>
+          <StackedHorizontalBarChart
+            title="Inkomen naar landelijke 20% groepen"
+            icon="werk_en_inkomen.png"
+            config={gemmInkomen}
+            gwb={gwb}
+          ></StackedHorizontalBarChart>
+        </Column>
+      </Row>
+    </ContainerDiv>
   );
 };
 
