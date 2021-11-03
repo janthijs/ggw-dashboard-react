@@ -48,6 +48,40 @@
           "legend": null
         }
       }
+    },
+    {
+      "encoding": {
+        "text": { "field": "value", "type": "quantitative" },
+        "x": {
+          "field": "key",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dy": 10
+      }
+    },
+    {
+      "encoding": {
+        "x": {
+          "field": "key",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "gemiddelde",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "type": "line",
+        "color": "#EC0000"
+      }
     }
   ]
 }

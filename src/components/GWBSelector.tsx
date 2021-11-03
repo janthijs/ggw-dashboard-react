@@ -49,8 +49,6 @@ const GWBSelector = ({ gwb, setGWB }) => {
   }>(emptyState);
 
   const updateGebied = async (gebiedCode) => {
-    console.log("gebiedCode", gebiedCode);
-
     let gebiedDetail = null;
 
     if (gebiedCode) {
@@ -81,14 +79,11 @@ const GWBSelector = ({ gwb, setGWB }) => {
       });
     }
 
-    console.log("gebiedDetail", gebiedDetail);
     setGWB(gebiedDetail);
   };
 
   const updateWijk = async (wijkCode) => {
     let wijkDetail = null;
-
-    console.log("wijkCode", wijkCode);
 
     if (wijkCode && wijkCode !== "wijk") {
       const wijk = gwbSelection.wijken.find((w) => w.vollcode === wijkCode);
@@ -126,7 +121,6 @@ const GWBSelector = ({ gwb, setGWB }) => {
   };
 
   useEffect(() => {
-    console.log("update gebied effect");
     updateGebied(gwbSelection.gebied);
   }, [gwbSelection.gebieden]);
 

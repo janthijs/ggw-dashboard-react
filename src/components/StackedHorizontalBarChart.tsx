@@ -5,6 +5,7 @@ import cloneDeep from "lodash/cloneDeep";
 import stackedVegaSpec from "../static/charts/stackedhorizontalbar.json";
 import util from "../services/util";
 import "./HorizontalBarChart.scss";
+import { getColorsUsingStaticDefinition } from "../services/colorcoding";
 
 const vegaEmbedOptions = {
   actions: false,
@@ -17,17 +18,15 @@ const sumReducer = (previousValue, currentItem) => {
   return previousValue;
 };
 
-const StackedHorizontalBarChart = ({ title, icon, config, gwb }) => {
+const StackedHorizontalBarChart = ({ title, config, gwb }) => {
   const chartRef = React.useRef<HTMLDivElement>(null);
 
   async function updateData() {
-    const chartdata = await util.getLatestConfigCijfers(
-      gwb,
-      config.indicatoren
-    );
+    const colors = getColorsUsingStaticDefinition(config);
+    const chartdata = await util.getLatestConfigCijfers(gwb, config);
     const cityAverage = await util.getLatestConfigCijfers(
       { volledige_code: "STAD", naam: "Amsterdam" },
-      config.indicatoren
+      config
     );
     const chartBase = cloneDeep(stackedVegaSpec);
 
@@ -35,40 +34,51 @@ const StackedHorizontalBarChart = ({ title, icon, config, gwb }) => {
 
     const cityMultiplier = 100 / cityAverage.reduce(sumReducer, 0);
 
-    chartBase.data.values = chartdata
-      .filter((d) => d.recent)
-      .map((d, i) => ({
+    const filteredChartData = chartdata.filter((d) => d.recent);
+    const filteredCityAverage = cityAverage.filter((d) => d.recent);
+
+    chartBase.data.values = filteredChartData.map((d, i) => ({
+      i,
+      key: d.label,
+      value: Math.round(d?.recent?.waarde * baseMultiplier) || 0,
+      label:
+        d.recent && d.recent.waarde !== null
+          ? d.recent.waarde
+          : "Geen gegevens",
+      color: colors[i],
+      gebied: d?.gebied?.naam,
+      position:
+        i === 0
+          ? d.recent.waarde / 2
+          : filteredChartData.slice(0, i).reduce(sumReducer, 0) +
+            d.recent.waarde / 2,
+    }));
+
+    chartBase.data.values = chartBase.data.values.concat(
+      filteredCityAverage.map((d, i) => ({
+        i,
         key: d.label,
-        value: d?.recent?.waarde * baseMultiplier || 0,
+        value: Math.round(d?.recent?.waarde * cityMultiplier) || 0,
         label:
           d.recent && d.recent.waarde !== null
             ? d.recent.waarde
             : "Geen gegevens",
-        color: config.kleuren[i],
-        i,
+        color: colors[i],
         gebied: d?.gebied?.naam,
-      }));
-
-    chartBase.data.values = chartBase.data.values.concat(
-      cityAverage
-        .filter((d) => d.recent)
-        .map((d, i) => ({
-          key: d.label,
-          value: d?.recent?.waarde * cityMultiplier || 0,
-          label:
-            d.recent && d.recent.waarde !== null
-              ? d.recent.waarde
-              : "Geen gegevens",
-          color: config.kleuren[i],
-          i,
-          gebied: d?.gebied?.naam,
-        }))
+        position:
+          i === 0
+            ? d.recent.waarde / 2
+            : filteredCityAverage.slice(0, i).reduce(sumReducer, 0) +
+              d.recent.waarde / 2,
+      }))
     );
 
-    chartBase.encoding.color["scale"] = {
-      domain: config.indicatoren.map((i) => i.label),
-      range: config.kleuren,
+    chartBase.layer[0].encoding.color["scale"] = {
+      domain: config.map((i) => i.label),
+      range: colors,
     };
+
+    console.log("chartBase", JSON.stringify(chartBase));
 
     if (chartRef.current) {
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);

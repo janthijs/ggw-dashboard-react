@@ -4,6 +4,7 @@ import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 import HorizontalBarChart from "../components/HorizontalBarChart";
 import InAantallen from "../components/InAantallen";
 import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
+import VerticalBarChart from "../components/VerticalBarChart";
 
 import woningVoorraad from "../static/links/woningvoorraad.json";
 import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
@@ -12,6 +13,7 @@ import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import jeugd from "../static/links/jeugd.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import beroepsbevolking from "../static/links/potentiele_beroepsbevolking.json";
+import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 
 const ContainerDiv = styled("div")`
   margin-top: ${themeSpacing(3)};
@@ -117,7 +119,6 @@ const GebiedInHetKort = ({ gwb }) => {
         <Column span={6}>
           <StackedHorizontalBarChart
             title="Leeftijdsgroepen in %"
-            icon="werk_en_inkomen.png"
             config={jeugd}
             gwb={gwb}
           ></StackedHorizontalBarChart>
@@ -130,7 +131,6 @@ const GebiedInHetKort = ({ gwb }) => {
         <Column span={6}>
           <StackedHorizontalBarChart
             title="18 t/m 74 jarigen naar sociale klasse"
-            icon="werk_en_inkomen.png"
             config={beroepsbevolking}
             gwb={gwb}
           ></StackedHorizontalBarChart>
@@ -138,10 +138,24 @@ const GebiedInHetKort = ({ gwb }) => {
         <Column span={6}>
           <StackedHorizontalBarChart
             title="Inkomen naar landelijke 20% groepen"
-            icon="werk_en_inkomen.png"
             config={gemmInkomen}
             gwb={gwb}
           ></StackedHorizontalBarChart>
+        </Column>
+      </Row>
+      <Row>
+        <Column span={12}>
+          <h2>Demo VerticalBarChart in {gwb?.naam}</h2>
+        </Column>
+        <Column span={6}>
+          <VerticalBarChart
+            title="Vandalisme en slachtoffers"
+            config={vandalismeSlachtoffers}
+            gwb={gwb}
+          ></VerticalBarChart>
+        </Column>
+        <Column span={6}>
+          <p>Leeg</p>
         </Column>
       </Row>
     </ContainerDiv>

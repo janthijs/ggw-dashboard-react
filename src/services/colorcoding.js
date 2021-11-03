@@ -1,3 +1,5 @@
+import kleurenTabel from "../static/kleurcodetabel.json";
+
 /**
  * The Amsterdam style guide colors
  */
@@ -196,4 +198,15 @@ export function getRankingColor(ranking, maxRanking) {
     ((ABSOLUTE_COLORS.length - 1) / maxRanking) * ranking
   );
   return ABSOLUTE_COLORS[index];
+}
+
+/**
+ * Given a config (a list of indicatorId's) return the static color list found in kleurcodetabel.json
+ *
+ */
+export function getColorsUsingStaticDefinition(config) {
+  const indexMax = Math.min(config?.length, 6); // The maximum number of distict items is 6
+  const indexMin = Math.max(1, indexMax); // The minimum number of distinct items is 1.
+
+  return kleurenTabel.kleur[`grafiek_${indexMin}`];
 }

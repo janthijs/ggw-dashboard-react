@@ -100,10 +100,19 @@ export async function getStd() {
  * @param gebiedCode
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
-async function getCijfers(meta, year = null, gebiedCode = null) {
-  const post = meta.symbool === "%" ? meta.symbool : ""; // only copy % symbol
+async function getCijfers(
+  meta,
+  year = null,
+  gebiedCode = null,
+  indicatorDefinitieId = null
+) {
+  const post = meta?.symbool === "%" ? meta.symbool : ""; // only copy % symbol
 
-  const selectVariable = `indicatorDefinitieId=${meta.indicatorDefinitieId}`;
+  const selectVariable = `indicatorDefinitieId=${
+    meta?.indicatorDefinitieId
+      ? meta?.indicatorDefinitieId
+      : indicatorDefinitieId
+  }`;
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : "";
   const isLatest = year === "latest";
   const url = getUrlv1(
@@ -119,7 +128,17 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
     waarde: c.waarde === "" || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
     post,
     gebiedcode15: c.gebiedcode15,
-    ...getColor(meta, c.waarde, c.jaar, std),
+    ...getColor(
+      {
+        indicatorDefinitieId: meta?.indicatorDefinitieId
+          ? meta.indicatorDefinitieId
+          : indicatorDefinitieId,
+        kleurenpalet: meta?.kleurenpalet ? meta.kleurenpalet : "",
+      },
+      c.waarde,
+      c.jaar,
+      std
+    ),
   }));
 
   return isLatest ? results.pop() : results;
@@ -167,12 +186,18 @@ export async function getGebiedCijfers(
   const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll;
 
   async function getData() {
-    const cijfers = await getCijfers(meta, jaar, gebied.volledige_code);
+    const cijfers = await getCijfers(
+      meta,
+      jaar,
+      gebied.volledige_code,
+      variableName
+    );
+
     return {
       gebied,
       meta,
       cijfers: cijfers,
-      recent: cijfers.length ? cijfers[cijfers.length - 1] : undefined,
+      recent: cijfers?.length ? cijfers[cijfers.length - 1] : undefined,
     };
   }
 
