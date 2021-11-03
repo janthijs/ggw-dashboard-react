@@ -5,14 +5,14 @@ import HorizontalBarChart from "../components/HorizontalBarChart";
 import InAantallen from "../components/InAantallen";
 import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 import VerticalBarChart from "../components/VerticalBarChart";
+import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
+import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar";
 
 import woningVoorraad from "../static/links/woningvoorraad.json";
 import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
-import leeftijd from "../static/links/leeftijd.json";
 import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import jeugd from "../static/links/jeugd.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
-import beroepsbevolking from "../static/links/potentiele_beroepsbevolking.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 
 const ContainerDiv = styled("div")`
@@ -83,12 +83,7 @@ const GebiedInHetKort = ({ gwb }) => {
             xLarge: 6,
           }}
         >
-          <HorizontalBarChart
-            title="Leeftijd"
-            icon="kind_icoon_met_bal.png"
-            config={leeftijd}
-            gwb={gwb}
-          ></HorizontalBarChart>
+          <LeeftijdJeugdStackedBar gwb={gwb} />
         </Column>
         <Column
           wrap
@@ -117,11 +112,7 @@ const GebiedInHetKort = ({ gwb }) => {
           <div></div>
         </Column>
         <Column span={6}>
-          <StackedHorizontalBarChart
-            title="Leeftijdsgroepen in %"
-            config={jeugd}
-            gwb={gwb}
-          ></StackedHorizontalBarChart>
+          <LeeftijdJeugdStackedBar gwb={gwb} />
         </Column>
       </Row>
       <Row>
@@ -129,11 +120,7 @@ const GebiedInHetKort = ({ gwb }) => {
           <h2>Samenstelling Werk en Inkomen in {gwb?.naam}</h2>
         </Column>
         <Column span={6}>
-          <StackedHorizontalBarChart
-            title="18 t/m 74 jarigen naar sociale klasse"
-            config={beroepsbevolking}
-            gwb={gwb}
-          ></StackedHorizontalBarChart>
+          <SocialeKlasseStackedBar gwb={gwb} />
         </Column>
         <Column span={6}>
           <StackedHorizontalBarChart
