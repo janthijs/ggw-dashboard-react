@@ -3,7 +3,7 @@ import { Header } from "@amsterdam/asc-ui";
 const GGWHeader = () => {
   return (
     <Header
-      tall={false}
+      tall
       title="Gebied in beeld"
       homeLink=""
       fullWidth

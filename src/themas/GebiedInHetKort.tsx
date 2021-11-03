@@ -11,7 +11,6 @@ import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar
 import woningVoorraad from "../static/links/woningvoorraad.json";
 import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
 import migratieAchtergrond from "../static/links/migratieachtergrond.json";
-import jeugd from "../static/links/jeugd.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 
